@@ -23,3 +23,5 @@
         ]
       }
  }
+
+GET http://localhost:5000/api/getRuta/ HTTP/1.1
