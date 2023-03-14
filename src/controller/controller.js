@@ -27,7 +27,7 @@ const getRuta = async (req, res) => {
 const getRutaNum = async (req, res) => {
   try {
     const numero_ruta = req.headers.numero_ruta;
-    const ruta = await model.findOne({ "properties.numero_ruta": numero_ruta });
+    const ruta = await model.find({ "properties.numero_ruta": numero_ruta });
     if (!ruta) return res.status(404).send("Ruta no encontrada");
     res.send(ruta);
   } catch (err) {
@@ -39,7 +39,7 @@ const getRutaNum = async (req, res) => {
 const getRutaColor = async (req, res) => {
   try {
     const color_ruta = req.headers.color_ruta;
-    const ruta = await model.findOne({ "properties.color_ruta": { $regex: new RegExp(color_ruta, "i") } });
+    const ruta = await model.find({ "properties.color_ruta": { $regex: new RegExp(color_ruta, "i") } });
     if (!ruta) return res.status(404).send("Ruta no encontrada");
     res.send(ruta);
   } catch (err) {
