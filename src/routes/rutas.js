@@ -4,13 +4,12 @@ const router = Router();
 
 router.post('/insertRuta', insertRuta);
 
-router.get('/getRuta/:id', getRuta)
+router.get('/getRuta', getRuta);
 
-router.get('/getRutaNum/:numero_ruta', getRutaNum)
+router.get('/getRutaNum', getRutaNum);
 
-router.get('/getRutaColor/:color_ruta', getRutaColor);
+router.get('/getRutaColor', getRutaColor);
 
 // router.get('/getRutasPorCoordenadas/', getRutasPorCoordenadas);
-
 
 module.exports = router;
