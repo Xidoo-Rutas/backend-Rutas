@@ -11,6 +11,9 @@ const ruta = new Schema(
            },
            color_ruta: {
              type: String
+           },
+           sentido_ruta: {
+            type: String
            }
         },
         geometry: {
@@ -22,7 +25,7 @@ const ruta = new Schema(
             type: Array
           }]
         },
-        feature: {
+        type: {
           type: String,
           default: "Feature"
         }
