@@ -2,10 +2,6 @@ const { Schema, model } = require('mongoose');
 
 const ruta = new Schema(
     {
-        features: {
-          type: String,
-          default: "Feature"
-        },
         properties: {
           nombre_ruta: {
              type: String
@@ -25,6 +21,10 @@ const ruta = new Schema(
           coordinates: [{
             type: Array
           }]
+        },
+        feature: {
+          type: String,
+          default: "Feature"
         }
     },
     { versionKey: false, timestamps: true }
