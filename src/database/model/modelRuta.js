@@ -9,7 +9,7 @@ const ruta = new Schema(
            numero_ruta: {
              type: String
            },
-           color_ruta: {
+           color: {
              type: String
            },
            sentido_ruta: {

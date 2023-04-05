@@ -3,7 +3,6 @@
  Content-Type: application/json
 
  {
-     "features": "Feature",
       "properties": {
         "nombre_ruta": "ruta 19",
         "numero_ruta": "19",
@@ -21,7 +20,8 @@
           [-101.21383652549022, 20.554214031535068],
           [-101.22722604340147, 20.554484432481388]
         ]
-      }
+      },
+      "type": "Feature"
  }
 
 GET http://localhost:5000/api/getRuta/ HTTP/1.1
