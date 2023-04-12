@@ -1,10 +1,11 @@
 const {app, port, express} = require('./app')
 const dotenv = require('dotenv');
 const databaseConnected = require('./src/database/conexion');
+const cors = require('cors')
 
 // middlewares
 app.use(express.json());
-
+app.use(cors());
 app.listen(port, (req, res) =>{
     try{
         databaseConnected();

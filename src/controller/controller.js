@@ -1,4 +1,5 @@
 const model = require('../database/model/modelRuta');
+const modelPuntos = require('../database/model/modelPuntos');
 
 const insertRuta = async (req, res) => {
   try {
@@ -48,9 +49,21 @@ const getRutaColor = async (req, res) => {
   }
 };
 
+const getPuntosInteres = async (req, res) => {
+  try {
+    const response = await modelPuntos.find({})
+    if (!response) return res.status(404).json({message: 'No hay puntos de interes'})
+    res.status(200).send(response)
+  } catch (error) {
+    console.log(error);
+    res.status(500).send(err);
+  }
+}
+
 module.exports = {
   insertRuta,
   getRuta,
   getRutaNum,
-  getRutaColor
+  getRutaColor,
+  getPuntosInteres
 }
