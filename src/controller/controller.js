@@ -27,8 +27,8 @@ const getRuta = async (req, res) => {
 
 const getRutaNum = async (req, res) => {
   try {
-    const numero_ruta = req.headers.numero_ruta;
-    const ruta = await model.find({ "properties.numero_ruta": numero_ruta });
+    const numeroruta = req.headers.numeroruta;
+    const ruta = await model.find({ "properties.numero_ruta": numeroruta });
     if (!ruta) return res.status(404).send("Ruta no encontrada");
     res.send(ruta);
   } catch (err) {
