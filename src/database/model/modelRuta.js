@@ -4,16 +4,24 @@ const ruta = new Schema(
     {
         properties: {
           nombre_ruta: {
-             type: String
+             type: String,
+              required: true
            },
            numero_ruta: {
-             type: String
+             type: String,
+             reqired: true
            },
            color: {
-             type: String
+             type: String,
+             required: true
            },
            sentido_ruta: {
-            type: String
+            type: String,
+            required: true
+           },
+           region: {
+            type: String,
+            required: true
            }
         },
         geometry: {
@@ -22,7 +30,8 @@ const ruta = new Schema(
             default: "LineString"
           },
           coordinates: [{
-            type: Array
+            type: Array,
+            required: true
           }]
         },
         type: {

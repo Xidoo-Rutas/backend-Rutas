@@ -1,16 +1,16 @@
 const {Router} = require('express');
-const { insertRuta, getRuta, getRutaNum, getRutaColor, getRutasPorCoordenadas, getPuntosInteres } = require('../controller/controller');
+const { insertRuta, getRuta, getRutaNum, getRutaColor, getRutasPorCoordenadas, getPuntosInteres, getAllRutas } = require('../controller/controller');
 const router = Router();
 
 router.post('/insertRuta', insertRuta);
 
-router.get('/getRuta', getRuta);
-
-router.get('/getRutaNum', getRutaNum);
+router.get('/getruta/:sentido/:numero/:region', getRuta);
 
 router.get('/getRutaColor', getRutaColor);
 
-router.get('/puntosinteres', getPuntosInteres)
+router.get('/puntosinteres', getPuntosInteres);
+
+router.get('/rutas', getAllRutas);
 
 // router.get('/getRutasPorCoordenadas/', getRutasPorCoordenadas);
 
