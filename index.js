@@ -1,7 +1,8 @@
 const {app, port, express} = require('./app')
 const dotenv = require('dotenv');
 const databaseConnected = require('./src/database/conexion');
-const cors = require('cors')
+const cors = require('cors');
+const RouteNotFound = require('./src/middlewares/RouteNotFound');
 
 // middlewares
 app.use(express.json());
@@ -18,3 +19,4 @@ app.listen(port, (req, res) =>{
 });
 
 app.use('/api', require('./src/routes/rutas'));
+app.use('/', RouteNotFound)
