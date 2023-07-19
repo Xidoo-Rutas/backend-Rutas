@@ -25,6 +25,18 @@ const getAllRutas = async (req, res) => {
   }
 };
 
+const getRutasByRegion = async (req, res) => {
+  const region = req.params.region;
+  try {
+    const rutas = await model.find({"properties.region": region});
+    if (!rutas) return res.status(404).json({ message: "No hay rutas disponibles" });
+    const regionProperties = rutas.map(ruta => ruta.properties)
+    res.status(200).send(regionProperties);
+  } catch (error) {
+    res.status(500).json({ message: "Error interno del servidor" });
+  }
+}
+
 const getRuta = async (req, res) => {
   try {
     const sentido = req.params.sentido.toUpperCase();
@@ -42,19 +54,6 @@ const getRuta = async (req, res) => {
   }
 };
 
-const getRutaColor = async (req, res) => {
-  try {
-    const color_ruta = req.headers.color_ruta;
-    const ruta = await model.find({
-      "properties.color_ruta": { $regex: new RegExp(color_ruta, "i") },
-    });
-    if (!ruta) return res.status(404).send("Ruta no encontrada");
-    res.send(ruta);
-  } catch (err) {
-    console.error(err);
-    res.status(500).send(err);
-  }
-};
 
 const getPuntosInteres = async (req, res) => {
   try {
@@ -71,7 +70,7 @@ const getPuntosInteres = async (req, res) => {
 module.exports = {
   insertRuta,
   getRuta,
-  getRutaColor,
   getPuntosInteres,
   getAllRutas,
+  getRutasByRegion
 };
