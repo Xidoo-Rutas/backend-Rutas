@@ -37,6 +37,17 @@ const getRutasByRegion = async (req, res) => {
   }
 }
 
+const getRutasSelector = async (req, res) => {
+  try {
+    const rutas = await model.find({});
+    if (!rutas) return res.status(404).json({ message: "No hay rutas disponibles" });
+    const regionProperties = rutas.map(ruta => ruta.properties)
+    res.status(200).send(regionProperties);
+  } catch (error) {
+    res.status(500).json({ message: "Error interno del servidor" });
+  }
+}
+
 const getRuta = async (req, res) => {
   try {
     const sentido = req.params.sentido.toUpperCase();
@@ -72,5 +83,6 @@ module.exports = {
   getRuta,
   getPuntosInteres,
   getAllRutas,
-  getRutasByRegion
+  getRutasByRegion,
+  getRutasSelector
 };
