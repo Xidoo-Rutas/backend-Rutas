@@ -37,6 +37,7 @@ const getRutasByRegion = async (req, res) => {
   }
 }
 
+//selector
 const getRutasSelector = async (req, res) => {
   try {
     const rutas = await model.find({});
@@ -48,6 +49,7 @@ const getRutasSelector = async (req, res) => {
   }
 }
 
+//nuevo get ruta
 const getRuta = async (req, res) => {
   try {
     const sentido = req.params.sentido.toUpperCase();

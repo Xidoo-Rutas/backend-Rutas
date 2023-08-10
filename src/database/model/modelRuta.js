@@ -22,7 +22,17 @@ const ruta = new Schema(
            region: {
             type: String,
             required: true
-           }
+           },
+          recorrido: {
+            rec_global: {
+              type: Object,
+              required: true
+            },
+            rec_espe: {
+              type: Object,
+              required: true
+            }
+          }
         },
         geometry: {
           type: {
