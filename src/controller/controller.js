@@ -52,7 +52,7 @@ const getRutasSelector = async (req, res) => {
 //nuevo get ruta
 const getRuta = async (req, res) => {
   try {
-    const sentido = req.params.sentido.toUpperCase();
+    const sentido = req.params.sentido.toLowerCase();
     const numeroRuta = req.params.numero;
     const region = req.params.region
     const response = await model.findOne({

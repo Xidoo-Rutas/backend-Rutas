@@ -29,7 +29,7 @@ const ruta = new Schema(
               required: true
             },
             rec_espe: {
-              type: Object,
+              type: Array,
               required: true
             }
           }
