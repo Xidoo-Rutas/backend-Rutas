@@ -1,5 +1,5 @@
 const {Router} = require('express');
-const { insertRuta, getRuta, getRutasSelector, getPuntosInteres, getAllRutas, getRutasByRegion } = require('../controller/controller');
+const { insertRuta, getRuta, getRutasSelector, getPuntosInteres, getAllRutas, getRutasByRegion, insertPuntosInteres } = require('../controller/controller');
 const router = Router();
 
 router.post('/insertRuta', insertRuta);
@@ -11,6 +11,8 @@ router.get('/getrutas/:region', getRutasByRegion)
 router.get('/getrutas', getRutasSelector)
 
 router.get('/puntosinteres', getPuntosInteres);
+
+router.post('/puntosinteres', insertPuntosInteres);
 
 router.get('/rutas', getAllRutas);
 

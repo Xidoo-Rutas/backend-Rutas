@@ -67,6 +67,17 @@ const getRuta = async (req, res) => {
   }
 };
 
+const insertPuntosInteres = async (req, res) => {
+  try {
+    const puntos = req.body;
+    const docs = await modelPuntos.create(puntos);
+    console.log(docs);
+    res.status(201).send(docs);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send(err);
+  }
+}
 
 const getPuntosInteres = async (req, res) => {
   try {
@@ -86,5 +97,6 @@ module.exports = {
   getPuntosInteres,
   getAllRutas,
   getRutasByRegion,
-  getRutasSelector
+  getRutasSelector,
+  insertPuntosInteres
 };
